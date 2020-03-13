@@ -55,6 +55,7 @@ const createStore = () => {
           commit('setLoading', false)
           saveUserData(authUserData, user)
         } catch (err) {
+          commit('setLoading', false)
           console.error(err)
         }
       },

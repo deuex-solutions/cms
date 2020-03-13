@@ -8,7 +8,7 @@
       <md-content 
         class="md-layout md-gutter" 
         style="background: #007998; padding: 1em;">
-        Dashboard
+        My Account
       </md-content>
     </div>
   </div>
@@ -17,7 +17,7 @@
 import NavigationBar from '~/components/common/NavigationBar'
 
 export default {
-  name: 'Dashboard',
+  name: 'MyAccount',
   middleware: 'auth',
   components: {
     NavigationBar

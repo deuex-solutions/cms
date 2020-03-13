@@ -1,9 +1,7 @@
 import { getUserFromCookie, getUserFromLocalStorage } from '~/utils'
 
 export default function({ store, req }) {
-  console.log('check-auth')
   if (process.server && !req) {
-    console.log(req)
     return
   }
 
