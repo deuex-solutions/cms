@@ -2,6 +2,9 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
+  router: {
+    middleware: 'check-auth'
+  },
 
   /*
   ** Headers of the page
@@ -36,7 +39,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: '~/plugins/vue-material' }],
+  plugins: [{ src: '~/plugins/vue-material' }, { src: '~/plugins/firestore' }],
 
   /*
   ** Nuxt.js modules
@@ -53,7 +56,13 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
     proxy: true
   },
-  proxy: {},
+  proxy: {
+    '/login/': {
+      target:
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAyR49uuFs_fH8eakYjvo2SjM6ozZp3tCA',
+      pathRewrite: { '^/login/': '' }
+    }
+  },
 
   /*
   ** Build configuration
